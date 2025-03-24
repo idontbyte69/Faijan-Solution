@@ -1,14 +1,23 @@
 import Link from 'next/link';
+import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Faijan Solution</h3>
-            <p className="text-gray-400 mb-4">Your trusted partner for all online and digital services.</p>
+          <div className="relative w-[100px] h-[50px] md:w-[100px] md:h-[100px py]">
+                    <Image
+                      src="/images/logo-cutted.png"
+                      alt="Faijan Solution Logo"
+                      fill
+                      priority
+                      className="object-contain"
+                    />
+                  </div>
+            <p className="text-gray-400 mb-4 mt-4">Your trusted partner for all online and digital services.</p>
             <div className="flex space-x-4">
               <a 
                 href="https://www.facebook.com/faijansolutions" 
@@ -68,9 +77,9 @@ export default function Footer() {
               © {new Date().getFullYear()} Faijan Solution. All rights reserved.
             </p>
             <div className="text-gray-400 text-sm">
-              Developed with ❤️ by{' '}
+              Developed by{' '}
               <a 
-                href="https://github.com/idontbyte69" 
+                href="https://srtanveer.vercel.app/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-accent hover:text-accent/80 transition-colors"
