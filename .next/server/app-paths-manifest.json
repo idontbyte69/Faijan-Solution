@@ -2,7 +2,6 @@
   "/page": "app/page.js",
   "/contact/page": "app/contact/page.js",
   "/blog/page": "app/blog/page.js",
-  "/gallery/page": "app/gallery/page.js",
-  "/services/page": "app/services/page.js",
-  "/about/page": "app/about/page.js"
+  "/about/page": "app/about/page.js",
+  "/gallery/page": "app/gallery/page.js"
 }

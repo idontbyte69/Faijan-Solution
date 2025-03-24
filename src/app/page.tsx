@@ -5,27 +5,29 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-accent text-white py-16">
+      <section className="bg-gradient-to-r from-primary to-accent text-white py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="max-w-xl mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Welcome to Faijan Solution
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+            <div className="w-full md:w-1/2 text-center md:text-left">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Your Trusted Partner for Digital Solutions
               </h1>
-              <p className="text-xl mb-8">
-                Your trusted partner for all online and digital services. We provide comprehensive solutions for government services, freelancing, and computer repairs.
+              <p className="text-lg md:text-xl mb-6 opacity-90">
+                We provide comprehensive digital services including government documentation,
+                computer solutions, and digital marketing.
               </p>
-              <Link 
+              <Link
                 href="/contact"
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition-colors"
+                className="inline-block bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 Get Started
               </Link>
             </div>
+
             <div className="w-full md:w-1/2 flex justify-center">
-              <div className="relative w-[600px] h-[600px] flex items-center justify-center">
-                <div className="flex items-center space-x-8">
-                  <div className="relative w-[300px] h-[300px]">
+              <div className="relative w-full max-w-[500px] flex items-center justify-center">
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+                  <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[300px]">
                     <Image
                       src="/images/logo-cutted.png"
                       alt="Faijan Solution Logo"
@@ -34,7 +36,7 @@ export default function Home() {
                       className="object-contain"
                     />
                   </div>
-                  <div className="relative w-[200px] h-[200px]">
+                  <div className="relative w-[150px] h-[150px] md:w-[200px] md:h-[200px]">
                     <Image
                       src="/images/owner.jpg"
                       alt="Arif Hossain Dipu - Owner of Faijan Solution"
