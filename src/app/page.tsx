@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -6,19 +7,32 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-primary text-white py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Welcome to Faijan Solution
-            </h1>
-            <p className="text-xl mb-8">
-              Your trusted partner for all online and digital services. We provide comprehensive solutions for government services, freelancing, and computer repairs.
-            </p>
-            <Link 
-              href="/contact"
-              className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition-colors"
-            >
-              Get Started
-            </Link>
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="max-w-xl mb-8 md:mb-0">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Welcome to Faijan Solution
+              </h1>
+              <p className="text-xl mb-8">
+                Your trusted partner for all online and digital services. We provide comprehensive solutions for government services, freelancing, and computer repairs.
+              </p>
+              <Link 
+                href="/contact"
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition-colors"
+              >
+                Get Started
+              </Link>
+            </div>
+            <div className="w-full md:w-1/2 flex justify-center">
+              <div className="relative w-[600px] h-[600px]">
+                <Image
+                  src="/images/logo-cutted.png"
+                  alt="Faijan Solution Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -30,12 +30,16 @@ export default function Contact() {
               <p className="text-gray-600">Arif Hossain Dipu</p>
             </div>
             <div>
-              <h3 className="font-medium mb-2">Phone</h3>
+              <h3 className="font-medium mb-2">Phone/Whatsapp</h3>
               <p className="text-gray-600">01880856099</p>
             </div>
             <div>
               <h3 className="font-medium mb-2">Email</h3>
               <p className="text-gray-600">dipubdit@gmail.com</p>
+            </div>
+            <div>
+              <h3 className="font-medium mb-2">Business-Email</h3>
+              <p className="text-gray-600">cs0001362@gmail.com</p>
             </div>
             <div>
               <h3 className="font-medium mb-2">Social Media</h3>
