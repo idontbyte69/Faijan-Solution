@@ -40,6 +40,9 @@ export default function Navbar() {
             <Link href="/services" className={`${isActive('/services')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
               Services
             </Link>
+            <Link href="/gallery" className={`${isActive('/gallery')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
+              Gallery
+            </Link>
             <Link href="/blog" className={`${isActive('/blog')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
               Vlog & Article
             </Link>

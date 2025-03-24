@@ -128,6 +128,86 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* NID Services */}
+            <div className="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">NID Services</h3>
+              <p className="text-gray-600 mb-4">NID Registration & Correction</p>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span>Customer Satisfaction</span>
+                  <span className="font-semibold">97%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-primary h-2 rounded-full transition-all duration-500" style={{ width: '97%' }}></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Passport Services */}
+            <div className="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Passport Services including Police Clearance</h3>
+              <p className="text-gray-600 mb-4">Passport Application & Renewal</p>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span>Customer Satisfaction</span>
+                  <span className="font-semibold">96%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-primary h-2 rounded-full transition-all duration-500" style={{ width: '96%' }}></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Computer Repair */}
+            <div className="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Computer Repair</h3>
+              <p className="text-gray-600 mb-4">Desktop & Laptop Repair Services</p>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span>Customer Satisfaction</span>
+                  <span className="font-semibold">95%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-primary h-2 rounded-full transition-all duration-500" style={{ width: '95%' }}></div>
+                </div>
+              </div>
+            </div>
+
+            {/* E-Return Services */}
+            <div className="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">E-Return Services</h3>
+              <p className="text-gray-600 mb-4">Income Tax Return Filing</p>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span>Customer Satisfaction</span>
+                  <span className="font-semibold">97%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-primary h-2 rounded-full transition-all duration-500" style={{ width: '97%' }}></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -211,6 +291,58 @@ export default function Home() {
                 Learn More →
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-primary mb-4">Our Shop Gallery</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Take a virtual tour of our modern facility and see where we make digital solutions happen.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Featured Gallery Images */}
+            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/images/shop/shop-1.jpg"
+                alt="Faijan Solution Shop Front"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/images/shop/shop-2.jpg"
+                alt="Computer Service Area"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/images/shop/shop-5.jpg"
+                alt="Customer Service Desk"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link 
+              href="/gallery"
+              className="inline-flex items-center text-accent hover:text-accent/80 font-semibold"
+            >
+              View Full Gallery
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

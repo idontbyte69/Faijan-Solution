@@ -9,6 +9,7 @@ const services = [
       'Passport Services',
       'Police Clearance',
       'E-Tin Certificate',
+      'E-Return Filing',
       'Birth Certificate',
       'Online Job Application',
       'Visa Application'
@@ -156,6 +157,102 @@ export default function Services() {
                 <div 
                   className="bg-primary h-3 rounded-full transition-all duration-1000 ease-out"
                   style={{ width: '94%' }}
+                ></div>
+              </div>
+            </div>
+
+            {/* NID Services */}
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold">NID Services</h3>
+                    <p className="text-gray-600">NID Registration & Correction</p>
+                  </div>
+                </div>
+                <span className="text-3xl font-bold text-primary">97%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-primary h-3 rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: '97%' }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Passport Services */}
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold">Passport Services including Police Clearance</h3>
+                    <p className="text-gray-600">Passport Application & Renewal</p>
+                  </div>
+                </div>
+                <span className="text-3xl font-bold text-primary">96%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-primary h-3 rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: '96%' }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Computer Repair */}
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold">Computer Repair</h3>
+                    <p className="text-gray-600">Desktop & Laptop Repair Services</p>
+                  </div>
+                </div>
+                <span className="text-3xl font-bold text-primary">95%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-primary h-3 rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: '95%' }}
+                ></div>
+              </div>
+            </div>
+
+            {/* E-Return Services */}
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold">E-Return Services</h3>
+                    <p className="text-gray-600">Income Tax Return Filing</p>
+                  </div>
+                </div>
+                <span className="text-3xl font-bold text-primary">97%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-primary h-3 rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: '97%' }}
                 ></div>
               </div>
             </div>
