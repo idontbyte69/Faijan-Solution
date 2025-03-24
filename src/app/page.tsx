@@ -23,14 +23,26 @@ export default function Home() {
               </Link>
             </div>
             <div className="w-full md:w-1/2 flex justify-center">
-              <div className="relative w-[600px] h-[600px]">
-                <Image
-                  src="/images/logo-cutted.png"
-                  alt="Faijan Solution Logo"
-                  fill
-                  priority
-                  className="object-contain"
-                />
+              <div className="relative w-[600px] h-[600px] flex items-center justify-center">
+                <div className="flex items-center space-x-8">
+                  <div className="relative w-[300px] h-[300px]">
+                    <Image
+                      src="/images/logo-cutted.png"
+                      alt="Faijan Solution Logo"
+                      fill
+                      priority
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative w-[200px] h-[200px]">
+                    <Image
+                      src="/images/owner.jpg"
+                      alt="Arif Hossain Dipu - Owner of Faijan Solution"
+                      fill
+                      className="object-cover rounded-full border-4 border-white shadow-xl"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
