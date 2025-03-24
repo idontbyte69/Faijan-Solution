@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
+
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Navbar() {
               <div className="bg-[#1a365d] rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
                 <span className="text-white text-xl font-bold">FS</span>
               </div>
-              <div className="hidden sm:block">
+              <div className="sm:block">
                 <span className="text-xl font-bold text-[#1a365d]">Faijan</span>
                 <span className="text-xl font-bold text-[#4299e1]">Solutions</span>
               </div>
