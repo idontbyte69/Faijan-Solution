@@ -61,8 +61,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Owner: Arif Hossain Dipu</li>
-              <li>Phone/Whatsapp: 01880856099</li>
+              <li>CEO: Arif Hossain Dipu</li>
+              <li>Cell/Whatsapp: +880 188-08-56099</li>
               <li>Email: dipubdit@gmail.com</li>
               <li>Business-Email: cs0001362@gmail.com</li>
               <li>Location: 357 Rayerbagh, Dhaka-1362, Bangladesh</li>

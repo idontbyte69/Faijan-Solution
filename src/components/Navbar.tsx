@@ -45,7 +45,7 @@ export default function Navbar() {
               Gallery
             </Link>
             <Link href="/blog" className={`${isActive('/blog')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              Vlog & Article
+              Blog & Article
             </Link>
             <Link href="/contact" className={`${isActive('/contact')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
               Contact

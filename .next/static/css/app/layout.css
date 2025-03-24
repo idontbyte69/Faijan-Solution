@@ -680,6 +680,9 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mt-6 {
+  margin-top: 1.5rem;
+}
 .block {
   display: block;
 }
@@ -767,6 +770,9 @@ video {
 .h-\[50px\] {
   height: 50px;
 }
+.h-\[120px\] {
+  height: 120px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -823,6 +829,9 @@ video {
 }
 .w-\[250px\] {
   width: 250px;
+}
+.w-\[120px\] {
+  width: 120px;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -895,6 +904,9 @@ video {
 .gap-4 {
   gap: 1rem;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -944,6 +956,11 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 .overflow-hidden {
   overflow: hidden;
@@ -1333,6 +1350,22 @@ body {
     display: block;
   }
 
+  .sm\:h-\[150px\] {
+    height: 150px;
+  }
+
+  .sm\:h-\[200px\] {
+    height: 200px;
+  }
+
+  .sm\:w-\[150px\] {
+    width: 150px;
+  }
+
+  .sm\:w-\[200px\] {
+    width: 200px;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -1382,6 +1415,14 @@ body {
     height: 150px;
   }
 
+  .md\:h-\[180px\] {
+    height: 180px;
+  }
+
+  .md\:h-\[250px\] {
+    height: 250px;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -1406,6 +1447,10 @@ body {
     width: 250px;
   }
 
+  .md\:w-\[180px\] {
+    width: 180px;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1420,6 +1465,10 @@ body {
 
   .md\:gap-12 {
     gap: 3rem;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 
   .md\:py-16 {
@@ -1449,6 +1498,11 @@ body {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 

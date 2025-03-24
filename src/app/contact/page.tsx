@@ -32,7 +32,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-semibold mb-2">Meet Our Owner</h2>
+                  <h2 className="text-2xl font-semibold mb-2">Meet Our CEO</h2>
                   <h3 className="text-xl font-medium text-primary mb-2">Arif Hossain Dipu</h3>
                   <p className="text-gray-600">
                     With years of experience in digital services, I'm committed to providing the best solutions for all your needs.
@@ -45,7 +45,7 @@ export default function Contact() {
                   <h3 className="font-medium text-lg mb-2">Contact Details</h3>
                   <p className="text-gray-600">
                     <a href="tel:01880856099" className="hover:text-accent">
-                      Phone/WhatsApp: 01880856099
+                      Phone/WhatsApp: 018808-56099
                     </a>
                   </p>
                   <div className="space-y-1 mt-2">
