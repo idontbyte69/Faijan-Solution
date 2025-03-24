@@ -56,6 +56,7 @@ export default function Footer() {
               <li>Phone/Whatsapp: 01880856099</li>
               <li>Email: dipubdit@gmail.com</li>
               <li>Business-Email: cs0001362@gmail.com</li>
+              <li>Location: 357 Rayerbagh, Dhaka-1362, Bangladesh</li>
             </ul>
           </div>
         </div>

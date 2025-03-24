@@ -3,121 +3,69 @@
 import { useState } from 'react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-primary mb-8">Contact Us</h1>
       
+      
+      
       <div className="grid md:grid-cols-2 gap-12">
         {/* Contact Information */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-medium mb-2">Owner</h3>
-              <p className="text-gray-600">Arif Hossain Dipu</p>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">Phone/Whatsapp</h3>
-              <p className="text-gray-600">01880856099</p>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">Email</h3>
-              <p className="text-gray-600">dipubdit@gmail.com</p>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">Business-Email</h3>
-              <p className="text-gray-600">cs0001362@gmail.com</p>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">Social Media</h3>
-              <a
-                href="https://www.facebook.com/faijansolutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                Facebook Page
-              </a>
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-medium text-lg mb-2">Owner</h3>
+                <p className="text-gray-600">Arif Hossain Dipu</p>
+              </div>
+              <div>
+                <h3 className="font-medium text-lg mb-2">Phone/WhatsApp</h3>
+                <p className="text-gray-600">
+                  <a href="tel:01880856099" className="hover:text-accent">01880856099</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="font-medium text-lg mb-2">Email</h3>
+                <p className="text-gray-600">
+                  <a href="mailto:dipubdit@gmail.com" className="hover:text-accent">dipubdit@gmail.com</a>
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <a href="mailto:cs0001362@gmail.com" className="hover:text-accent">cs0001362@gmail.com</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="font-medium text-lg mb-2">Social Media</h3>
+                <a
+                  href="https://www.facebook.com/faijansolutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  Facebook Page
+                </a>
+              </div>
+              <div>
+                <h3 className="font-medium text-lg mb-2">Location</h3>
+                <p className="text-gray-600">
+                  Faijan Solutions, Opposite of Kadamtoli Police Station, 357 Rayerbagh, Dhaka-1362, Bangladesh
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent"
-                value={formData.subject}
-                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-accent text-white px-6 py-2 rounded-md hover:bg-accent/90 transition-colors"
-            >
-              Send Message
-            </button>
-          </form>
+        {/* Map */}
+        <div className="h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.4116602621684!2d90.45497047610083!3d23.696989078706938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b7be1ede68b7%3A0xb86a857861ea69b8!2sFAIJAN%20SOLUTIONS%20(DIPU)!5e0!3m2!1sen!2sbd!4v1742803796535!5m2!1sen!2sbd"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </div>
