@@ -1,20 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 
-
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { data: session } = useSession();
-
-  const isActive = (path: string) => {
-    return pathname === path ? 'text-accent border-b-2 border-accent' : 'text-gray-600 hover:text-accent';
-  };
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -28,57 +22,83 @@ export default function Navbar() {
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center space-x-3">
-              <div className="bg-[#1a365d] rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
-                <span className="text-white text-xl font-bold">FS</span>
-              </div>
-              <div className="sm:block">
-                <span className="text-xl font-bold text-[#1a365d]">Faijan</span>
-                <span className="text-xl font-bold text-[#4299e1]">Solutions</span>
-              </div>
-            </Link>
+          <div className="flex">
+            <div className="flex-shrink-0 flex items-center">
+              <Link href="/" className="text-xl font-bold text-primary">
+                Faijan Solution
+              </Link>
+            </div>
+            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`${
+                    pathname === item.href
+                      ? 'border-primary text-gray-900'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`${isActive(item.href)} px-3 py-2 text-sm font-medium transition-colors duration-200`}
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="hidden sm:ml-6 sm:flex sm:items-center">
             {session ? (
               <Link
                 href="/dashboard"
-                className="px-3 py-2 text-sm font-medium transition-colors duration-200"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
               >
                 Dashboard
               </Link>
             ) : (
               <Link
                 href="/auth/login"
-                className="px-3 py-2 text-sm font-medium transition-colors duration-200"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
               >
                 Login
               </Link>
             )}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="-mr-2 flex items-center sm:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
             >
               <span className="sr-only">Open main menu</span>
-              {isMobileMenuOpen ? (
-                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+              {!isMenuOpen ? (
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               ) : (
-                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               )}
             </button>
           </div>
@@ -86,15 +106,19 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {isMenuOpen && (
+        <div className="sm:hidden">
+          <div className="pt-2 pb-3 space-y-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`${isActive(item.href)} block px-3 py-2 text-base font-medium`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                className={`${
+                  pathname === item.href
+                    ? 'bg-primary text-white'
+                    : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+                } block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
@@ -102,8 +126,8 @@ export default function Navbar() {
             {!session && (
               <Link
                 href="/auth/login"
-                className={`${isActive('/auth/login')} block px-3 py-2 text-base font-medium`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="block pl-3 pr-4 py-2 border-l-4 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Login
               </Link>
@@ -111,8 +135,8 @@ export default function Navbar() {
             {session && (
               <Link
                 href="/dashboard"
-                className={`${isActive('/dashboard')} block px-3 py-2 text-base font-medium`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="block pl-3 pr-4 py-2 border-l-4 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Dashboard
               </Link>

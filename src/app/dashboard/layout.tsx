@@ -1,6 +1,8 @@
 'use client';
 
 import { useSession, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -9,8 +11,29 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (status === 'loading') return;
+    
+    if (!session) {
+      router.push('/auth/login');
+    }
+  }, [session, status, router]);
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return null;
+  }
 
   const navigation = [
     { name: 'Overview', href: '/dashboard' },
@@ -18,6 +41,11 @@ export default function DashboardLayout({
     { name: 'Content', href: '/dashboard/content' },
     ...(session?.user?.role === 'admin' ? [{ name: 'Admin', href: '/dashboard/admin' }] : []),
   ];
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    router.push('/');
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -51,10 +79,10 @@ export default function DashboardLayout({
               <div className="ml-3 relative">
                 <div className="flex items-center space-x-4">
                   <span className="text-sm text-gray-700">
-                    {session?.user?.name}
+                    {session?.user?.name} ({session?.user?.role})
                   </span>
                   <button
-                    onClick={() => signOut()}
+                    onClick={handleSignOut}
                     className="text-sm text-gray-500 hover:text-gray-700"
                   >
                     Sign out

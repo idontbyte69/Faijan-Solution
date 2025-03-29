@@ -14,7 +14,7 @@ export default function DashboardPage() {
           Welcome back, {session?.user?.name}!
         </h1>
         <p className="mt-1 text-sm text-gray-500">
-          Here's what's happening with your services today.
+          You are logged in as: {session?.user?.role}
         </p>
       </div>
 
