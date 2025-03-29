@@ -32,7 +32,7 @@ export async function GET() {
 }
 
 // POST /api/services
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
 
@@ -43,21 +43,35 @@ export async function POST(request: Request) {
       );
     }
 
-    const data = await request.json();
-    const { title, description, category, price, isActive } = data;
+    const { title, description, category, price, isActive, image } = await req.json();
+
+    if (!title || !description || !category) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { email: session.user.email! }
+    });
+
+    if (!user) {
+      return NextResponse.json(
+        { error: 'User not found' },
+        { status: 404 }
+      );
+    }
 
     const service = await prisma.service.create({
       data: {
         title,
         description,
         category,
-        price,
-        isActive,
-        createdBy: {
-          connect: {
-            email: session.user?.email as string,
-          },
-        },
+        price: price ? parseFloat(price) : null,
+        isActive: isActive ?? true,
+        image: image || null,
+        userId: user.id
       },
     });
 
@@ -66,6 +80,84 @@ export async function POST(request: Request) {
     console.error('Error creating service:', error);
     return NextResponse.json(
       { error: 'Failed to create service' },
+      { status: 500 }
+    );
+  }
+}
+
+// PATCH /api/services
+export async function PATCH(req: Request) {
+  try {
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const { id, title, description, category, price, isActive, image } = await req.json();
+
+    if (!id) {
+      return NextResponse.json(
+        { error: 'Service ID is required' },
+        { status: 400 }
+      );
+    }
+
+    const service = await prisma.service.update({
+      where: { id },
+      data: {
+        ...(title && { title }),
+        ...(description && { description }),
+        ...(category && { category }),
+        ...(price !== undefined && { price: price ? parseFloat(price) : null }),
+        ...(isActive !== undefined && { isActive }),
+        ...(image !== undefined && { image }),
+      },
+    });
+
+    return NextResponse.json(service);
+  } catch (error) {
+    console.error('Error updating service:', error);
+    return NextResponse.json(
+      { error: 'Failed to update service' },
+      { status: 500 }
+    );
+  }
+}
+
+// DELETE /api/services
+export async function DELETE(req: Request) {
+  try {
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const { id } = await req.json();
+
+    if (!id) {
+      return NextResponse.json(
+        { error: 'Service ID is required' },
+        { status: 400 }
+      );
+    }
+
+    await prisma.service.delete({
+      where: { id },
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Error deleting service:', error);
+    return NextResponse.json(
+      { error: 'Failed to delete service' },
       { status: 500 }
     );
   }

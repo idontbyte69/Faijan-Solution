@@ -39,7 +39,7 @@ model Service {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String
-  image       String
+  image       String?
   category    String
   price       Float?
   isActive    Boolean   @default(true)
