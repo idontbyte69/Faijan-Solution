@@ -4,15 +4,25 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   const isActive = (path: string) => {
     return pathname === path ? 'text-accent border-b-2 border-accent' : 'text-gray-600 hover:text-accent';
   };
+
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Contact', href: '/contact' },
+  ];
 
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
@@ -32,24 +42,30 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className={`${isActive('/')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              Home
-            </Link>
-            <Link href="/about" className={`${isActive('/about')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              About
-            </Link>
-            <Link href="/services" className={`${isActive('/services')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              Services
-            </Link>
-            <Link href="/gallery" className={`${isActive('/gallery')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              Gallery
-            </Link>
-            <Link href="/blog" className={`${isActive('/blog')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              Blog & Article
-            </Link>
-            <Link href="/contact" className={`${isActive('/contact')} px-3 py-2 text-sm font-medium transition-colors duration-200`}>
-              Contact
-            </Link>
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`${isActive(item.href)} px-3 py-2 text-sm font-medium transition-colors duration-200`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            {session ? (
+              <Link
+                href="/dashboard"
+                className="px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -73,41 +89,34 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-              href="/"
-              className={`${isActive('/')} block px-3 py-2 text-base font-medium`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className={`${isActive('/about')} block px-3 py-2 text-base font-medium`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/services"
-              className={`${isActive('/services')} block px-3 py-2 text-base font-medium`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/blog"
-              className={`${isActive('/blog')} block px-3 py-2 text-base font-medium`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Vlog & Article
-            </Link>
-            <Link
-              href="/contact"
-              className={`${isActive('/contact')} block px-3 py-2 text-base font-medium`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`${isActive(item.href)} block px-3 py-2 text-base font-medium`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            {!session && (
+              <Link
+                href="/auth/login"
+                className={`${isActive('/auth/login')} block px-3 py-2 text-base font-medium`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
+            )}
+            {session && (
+              <Link
+                href="/dashboard"
+                className={`${isActive('/dashboard')} block px-3 py-2 text-base font-medium`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+            )}
           </div>
         </div>
       )}
