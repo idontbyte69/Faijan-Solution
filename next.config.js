@@ -2,14 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-    ],
+    domains: ['localhost', 'vercel.app'],
+    unoptimized: process.env.NODE_ENV === 'development'
   },
+  typescript: {
+    ignoreBuildErrors: false
+  }
 }
 
 module.exports = nextConfig 

@@ -98,5 +98,14 @@ export const authOptions: NextAuthOptions = {
   }
 };
 
+// This is a workaround for Prisma Client during Vercel deployment
+// It prevents multiple instances of Prisma Client in development
+declare global {
+  var prisma: PrismaClient | undefined;
+}
+
+export const db = globalThis.prisma || prisma;
+if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
+
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST }; 
