@@ -2,7 +2,7 @@ import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
 // List of public routes that don't require authentication
-const publicRoutes = ['/', '/about', '/services', '/gallery', '/contact'];
+const publicRoutes = ['/', '/about', '/services', '/gallery', '/contact', '/blog'];
 
 export default withAuth(
   function middleware(req) {
@@ -10,6 +10,7 @@ export default withAuth(
     const isAuth = !!token;
     const isAuthPage = req.nextUrl.pathname.startsWith('/auth');
     const isPublicRoute = publicRoutes.includes(req.nextUrl.pathname);
+    const baseUrl = process.env.NEXTAUTH_URL || `https://${req.headers.get('host')}`;
 
     // Allow public routes without any redirects
     if (isPublicRoute) {
@@ -19,7 +20,7 @@ export default withAuth(
     // Handle auth pages (login, register, etc.)
     if (isAuthPage) {
       if (isAuth) {
-        return NextResponse.redirect(new URL('/dashboard', req.url));
+        return NextResponse.redirect(new URL('/dashboard', baseUrl));
       }
       return null;
     }
@@ -31,21 +32,21 @@ export default withAuth(
         from += req.nextUrl.search;
       }
       return NextResponse.redirect(
-        new URL(`/auth/login?from=${encodeURIComponent(from)}`, req.url)
+        new URL(`/auth/login?from=${encodeURIComponent(from)}`, baseUrl)
       );
     }
 
     // Role-based access control for dashboard
     if (req.nextUrl.pathname.startsWith('/dashboard')) {
       if (!token?.role || (token.role !== 'admin' && token.role !== 'moderator')) {
-        return NextResponse.redirect(new URL('/', req.url));
+        return NextResponse.redirect(new URL('/', baseUrl));
       }
     }
 
     // Admin-only routes
     if (req.nextUrl.pathname.startsWith('/dashboard/admin')) {
       if (token.role !== 'admin') {
-        return NextResponse.redirect(new URL('/dashboard', req.url));
+        return NextResponse.redirect(new URL('/dashboard', baseUrl));
       }
     }
 
