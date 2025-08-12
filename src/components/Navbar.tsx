@@ -25,7 +25,7 @@ export default function Navbar() {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="text-xl font-bold text-primary">
-                Faijan Solution
+                Faijan Solutions
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -46,19 +46,12 @@ export default function Navbar() {
           </div>
 
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            {session ? (
+            {session && (
               <Link
                 href="/dashboard"
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
               >
                 Dashboard
-              </Link>
-            ) : (
-              <Link
-                href="/auth/login"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-              >
-                Login
               </Link>
             )}
           </div>
@@ -123,15 +116,6 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            {!session && (
-              <Link
-                href="/auth/login"
-                className="block pl-3 pr-4 py-2 border-l-4 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Login
-              </Link>
-            )}
             {session && (
               <Link
                 href="/dashboard"
