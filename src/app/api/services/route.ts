@@ -3,7 +3,13 @@ import { getServerSession } from 'next-auth';
 import { PrismaClient } from '@prisma/client';
 import { authOptions } from '../auth/[...nextauth]/route';
 
-const prisma = new PrismaClient();
+// This is a workaround for Prisma Client during Vercel deployment
+declare global {
+  var prisma: PrismaClient | undefined;
+}
+
+const prisma = globalThis.prisma || new PrismaClient();
+if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
 
 // GET /api/services
 export async function GET() {

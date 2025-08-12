@@ -4,7 +4,14 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import NextAuth from "next-auth/next";
 
-const prisma = new PrismaClient();
+// This is a workaround for Prisma Client during Vercel deployment
+// It prevents multiple instances of Prisma Client in development
+declare global {
+  var prisma: PrismaClient | undefined;
+}
+
+const prisma = globalThis.prisma || new PrismaClient();
+if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -97,15 +104,6 @@ export const authOptions: NextAuthOptions = {
     }
   }
 };
-
-// This is a workaround for Prisma Client during Vercel deployment
-// It prevents multiple instances of Prisma Client in development
-declare global {
-  var prisma: PrismaClient | undefined;
-}
-
-export const db = globalThis.prisma || prisma;
-if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
 
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST }; 
