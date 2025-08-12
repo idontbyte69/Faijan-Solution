@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     const data = await request.json();
-    const { title, description, category, price, isActive } = data;
+    const { title, description, category, price, isActive, image } = data;
 
     const service = await prisma.service.create({
       data: {
@@ -53,6 +53,7 @@ export async function POST(request: Request) {
         category,
         price,
         isActive,
+        image: image || '/images/default-service.jpg', // Provide default image if none provided
         createdBy: {
           connect: {
             email: session.user?.email as string,
